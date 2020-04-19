@@ -4,12 +4,11 @@ import { currentTime } from "../../game-utility/time";
 import { generate } from "../../game-utility/words";
 const initialWords = generate();
 
-export default function TypingCheck({ handleWPM, handleLevel, level }) {
+export default function TypingCheck({ handleWPM, handleLevel, handleWordCount, wordCount, level }) {
   const [indexLetter, setIndexLetter] = useState(1);
   const [word, setWord] = useState(initialWords);
   const [letter, setLetter] = useState(word.charAt(0));
   const [startTime, setStartTime] = useState();
-  const [wordCount, setWordCount] = useState(0);
   const [keyInput, setKeyInput] = useState("");
   const handleTypedChar = input => {
     setKeyInput(input);
@@ -24,7 +23,7 @@ export default function TypingCheck({ handleWPM, handleLevel, level }) {
       setIndexLetter(newIndex);
     }
     if (word.charAt(indexLetter) === "" && keyInput === letter) {
-      setWordCount(wordCount + 1);
+      handleWordCount(wordCount + 1);
       let newWord = generate();
       setWord(newWord);
       setIndexLetter(1);
@@ -35,7 +34,7 @@ export default function TypingCheck({ handleWPM, handleLevel, level }) {
       let wpm = ((wordCount + 1) / durationInMinutes).toFixed(2);
       handleWPM(wpm);
       handleLevel(level + 1);
-      setWordCount(0);
+      handleWordCount(0);
     }
     setKeyInput(keyInput);
   }, [keyInput]);
