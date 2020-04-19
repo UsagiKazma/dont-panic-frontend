@@ -1,5 +1,6 @@
 import React from 'react'
-import Game from ""
+import Game from "./game-components/Game"
+import "../App.scss"
 function Canvas() {
     return (
         <div>

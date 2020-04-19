@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TypingCheck from "./TypingCheck";
+import "./game-css.scss"
 
 export default function Game() {
   const [wpm, setWpm] = useState(0);

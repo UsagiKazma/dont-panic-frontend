@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import KeyPress from "../components/KeyPress";
-import { currentTime } from "../utility/time";
-import { generate } from "../utility/words";
+import KeyPress from "./KeyPress";
+import { currentTime } from "../../game-utility/time";
+import { generate } from "../../game-utility/words";
 const initialWords = generate();
 
 export default function TypingCheck({ handleWPM, handleLevel, level }) {
@@ -43,10 +43,9 @@ export default function TypingCheck({ handleWPM, handleLevel, level }) {
   return (
     <>
       <header className="App-header">
-        <p className="Letter">
-          <span className="Character-current">{}</span>
-          <span id="thisone">{letter}</span>
-          <span>{word.substr(indexLetter)}</span>
+        <p className="letters">
+          <span className="current-letter glitch-game" data-text={letter}>{letter}</span>
+          <span className="current-word">{word.substr(indexLetter)}</span>
         </p>
         <KeyPress handleTypedChar={handleTypedChar} keyInput={keyInput} />
       </header>

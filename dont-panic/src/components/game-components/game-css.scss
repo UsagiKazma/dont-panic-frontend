@@ -1,28 +1,14 @@
-.container {
-    text-align: center;
-    .App {
-        font-family: "Share Tech Mono", monospace;
-        margin: 0 auto;
-        display: inline-block;
-    }
-    h1 {
-        text-transform: uppercase;
-    }
+.current-word{
+    font-size: 30px
+}
+.current-letter{
+    font-size: 35px;
+    background: black;
+    color: white;
 }
 
-.nav {
-    margin-top: 35px;
-}
 
-.canvas{
-    height:350px;
-    width:500px;
-    border: 2px solid black;
-    margin: 0 auto;
-    justify-content: center;
-}
 
-//GLITCH EFFECT Y'ALL
 @mixin glitchCopy {
     content: attr(data-text);
     position: absolute;
@@ -32,11 +18,9 @@
     height: 100%;
 }
 
-.glitch {
+.glitch-game {
     position: relative;
-    color: black;
-    font-size: 4em;
-    letter-spacing: 0.5em;
+    color: white;
     animation: glitch-skew 1s infinite linear alternate-reverse;
     &::before {
         @include glitchCopy;
