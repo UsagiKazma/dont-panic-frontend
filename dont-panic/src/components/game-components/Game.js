@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TypingCheck from "./TypingCheck";
+import PlayerMovement from "./PlayerMovement"
 import "./game-css.scss"
 
 export default function Game() {
@@ -21,6 +22,7 @@ export default function Game() {
       />
       <h3>WPM: {wpm}</h3>
       <h3>Level: {level}</h3>
+      <PlayerMovement />
     </>
   );
 };
