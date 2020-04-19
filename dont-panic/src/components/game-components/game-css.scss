@@ -14,6 +14,17 @@
     background: url(https://res.cloudinary.com/dum4u7sro/image/upload/v1587261264/Untitled_design_3_w3gffl.png);
     background-size: contain;
 }
+.player-grid{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: width 2s;
+    i{
+        text-align: right;
+        font-size: 35px;
+        z-index: 2;
+    }
+}
 
 
 @mixin glitchCopy {
