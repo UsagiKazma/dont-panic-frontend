@@ -4,7 +4,7 @@ export default function FailureDisplay({ failures }) {
   let failureDisplay = []
   if(failures>0){
    failureDisplay = [...Array(failures)].map((e, i) => {
-        return <p key={i}>X</p>;
+        return <p key={i} className="failures-p"><i id="failure-icon" className="fal fa-skull"></i></p>;
       })
       return failureDisplay;
     }

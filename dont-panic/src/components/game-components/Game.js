@@ -21,7 +21,7 @@ export default function Game() {
   }
 
   return (
-    <div>
+    <div className="game-container">
       <TypingCheck
         handleWPM={handleWPM}
         handleLevel={handleLevel}
