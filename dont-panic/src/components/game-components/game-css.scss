@@ -9,11 +9,10 @@
 }
 .typing-check{
     margin: 0 auto;
-    padding: 0;
+    padding: 19px;
+
 }
 .failures{
-    width: 60%;
-    font-size: 15px;
     margin: 0 auto;
     padding: 0;
 }
@@ -21,24 +20,56 @@
     margin: 0 auto;
     padding: 0;
 }
+.failures-p:nth-of-type(1){
+    margin-top: 100px;
+    #failure-icon {
+        // color:red;
+    }
+}
+.failures-p:nth-of-type(2){
+    margin-top: 20px;
+    margin-left: 30px;
+    #failure-icon {
+        font-size: 50px;
+    }
+}
+.failures-p:nth-of-type(3){
+    margin-top: 110px;
+    #failure-icon {
+        font-size: 80px;
+    }
+}
+.failures-p:nth-of-type(4){
+    margin-top: 150px;
+    margin-left: 270px;
+    #failure-icon {
+        font-size: 50px;
+    }
+}
+.failures-p:nth-of-type(5){
+    margin-left: 30px;
+    margin-top: 18px;
+    #failure-icon {
+        font-size: 100px;
+    }
+}
+
 #failure-icon{
     font-size: 30px;
-    font-weight: 400;
+    font-weight: 100;
     color: black;
     text-shadow: 1px 1px 2px rgba(255, 0, 0, 0.6);
-    padding: 0;
     margin: 0 auto;
 }
+
 .failure-display{
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    width: 30%;
+    width: 150px;
     margin: 0 auto;
-    padding: 0;
+    position:absolute;
 }
 .player-movement-container{
-    // border: solid black;
     height: 500px;
     width: 700px;
     height: 150px;
@@ -56,8 +87,6 @@
         z-index: 2;
     }
 }
-
-
 
 @mixin glitchCopy {
     content: attr(data-text);
