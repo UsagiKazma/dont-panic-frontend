@@ -41,7 +41,7 @@ export default function TypingCheck({
       setIndexLetter(1);
       setLetter(newWord.charAt(0));
     }
-    if (wordCount === 10) {
+    if (wordCount === 10*(level+1)) {
       const durationInMinutes = (currentTime() - startTime) / 60000.0;
       let wpm = ((wordCount + 1) / durationInMinutes).toFixed(2);
       handleWPM(wpm);
