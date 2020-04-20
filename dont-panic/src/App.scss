@@ -26,7 +26,6 @@
 }
 
 .background {
-    // background: url('./images/transparent.png') no-repeat;
     background: url('./images/3.png') no-repeat;
     margin: 0 auto;
     width: 1030px;
@@ -34,6 +33,20 @@
     background-size: auto;
     margin-left: -135px;
     margin-top: -350px;
+}
+
+.scoreboard-background {
+    background: url('./images/3.png') no-repeat;
+    margin: 0 auto;
+    width: 1030px;
+    height: 630px;
+    background-size: auto;
+    margin-left: 58px;
+    margin-top: -102px;
+}
+
+.App-header {
+    z-index: 289;
 }
 
 //GLITCH EFFECT Y'ALL
