@@ -21,7 +21,7 @@ export default function Game() {
   }
 
   return (
-    <>
+    <div>
       <TypingCheck
         handleWPM={handleWPM}
         handleLevel={handleLevel}
@@ -33,6 +33,6 @@ export default function Game() {
       <h3>Level: {level}</h3>
       <h3>Word Count: {wordCount}</h3>
       <PlayerMovement percent={percent<100 ? percent:100}/>
-    </>
+    </div>
   );
 };

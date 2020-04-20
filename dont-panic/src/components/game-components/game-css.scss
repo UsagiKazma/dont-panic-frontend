@@ -1,15 +1,30 @@
 .current-word{
-    font-size: 30px
+    font-size: 30px;
 }
 .current-letter{
     font-size: 35px;
     background: black;
     color: white;
+    padding: 3px;
+}
+.failures{
+    width: 60%;
+    font-size: 15px;
+    margin: 0 auto;
+}
+.failure-display{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: black solid;
+    width: 60%;
+    margin: 0 auto;
 }
 .player-movement-container{
     // border: solid black;
     height: 500px;
-    width: 100%;
+    width: 700px;
     height: 150px;
     background: url(https://res.cloudinary.com/dum4u7sro/image/upload/v1587261264/Untitled_design_3_w3gffl.png);
     background-size: contain;
