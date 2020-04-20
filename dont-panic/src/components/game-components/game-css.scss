@@ -23,11 +23,11 @@
 .failures-p:nth-of-type(1){
     margin-top: 100px;
     #failure-icon {
-        // color:red;
+       font-size: 41px;
     }
 }
 .failures-p:nth-of-type(2){
-    margin-top: 20px;
+    margin-top: 10px;
     margin-left: 30px;
     #failure-icon {
         font-size: 50px;
@@ -41,16 +41,16 @@
 }
 .failures-p:nth-of-type(4){
     margin-top: 150px;
-    margin-left: 270px;
+    margin-left: 235px;
     #failure-icon {
         font-size: 50px;
     }
 }
 .failures-p:nth-of-type(5){
-    margin-left: 30px;
+    margin-left: 33px;
     margin-top: 18px;
     #failure-icon {
-        font-size: 100px;
+        font-size: 90px;
     }
 }
 
@@ -94,16 +94,16 @@
         text-shadow: 0px 0px 15px rgba(0, 0, 0, 1);
     }
     20% {
-        text-shadow: 0px 0px 25px rgba(0, 0, 0, 1), 3px 3px 10px rgba(0, 255, 249, 0.4);
+        text-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8), 3px 3px 10px rgba(0, 255, 249, 0.4);
     }
     40%{
-        text-shadow: 0px 0px 15px rgba(0, 0, 0, 1), -3px 3px 10px rgba(255, 0, 193, 0.6);
+        text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.8), -3px 3px 10px rgba(255, 0, 193, 0.6);
     }
     60%{
-        text-shadow: 0px 0px 25px rgba(0, 0, 0, 1), 3px -3px 10px rgba(0, 255, 249, 0.6);
+        text-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8), 3px -3px 10px rgba(0, 255, 249, 0.6);
     }
     80%{
-        text-shadow: 0px 0px 15px rgba(0, 0, 0, 1), -3px -3px 10px rgba(255, 0, 193, 0.4);
+        text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.8), -3px -3px 10px rgba(255, 0, 193, 0.4);
     }
     100% {
         text-shadow: 0px 0px 25px rgba(0, 0, 0, 1);
