@@ -52,8 +52,7 @@ export default function TypingCheck({
   }, [keyInput]);
 
   return (
-    <>
-      <header className="typing-check">
+      <div className="typing-check">
         <div className="failure-display">
           {failures === 6 && <Redirect push to="/userInput" />}
           <FailureDisplay failures={failures} />
@@ -65,7 +64,6 @@ export default function TypingCheck({
           <span className="current-word">{word.substr(indexLetter)}</span>
         </p>
         <KeyPress handleTypedChar={handleTypedChar} keyInput={keyInput} />
-      </header>
-    </>
+      </div>
   );
 }
