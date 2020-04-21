@@ -12,13 +12,15 @@ export default function Game({wordsArr}) {
   const [wordCount, setWordCount] = useState(0);
   const [percent, setPercent] = useState(0);
   const [playerScore, setPlayerScore] = useState(0);
-  if(wordsArr.words){
+
   const generate = (words) => {
     const random = words[Math.floor(Math.random()*words.length)]
     console.log("PLZ WORK", words)
     return (random)
   };
-  generate(wordsArr)
+  
+  const randomWord = generate(wordsArr);
+  console.log('this thing',randomWord)
  
   const handleWPM = (input) => {
     setWpm(input);
@@ -37,14 +39,15 @@ export default function Game({wordsArr}) {
   };
   return (
     <div className="game-container">
-      <TypingCheck
+     {randomWord?  <TypingCheck
         handleWPM={handleWPM}
         handleLevel={handleLevel}
         level={level}
         handleWordCount={handleWordCount}
         wordCount={wordCount}
         handlePlayerScore={handlePlayerScore}
-      />
+        randomWord={randomWord}
+      />: <></>}
       <h3>WPM: {wpm}</h3>
       <h3>Level: {level}</h3>
       <h3>Word Count: {wordCount}</h3>
@@ -52,7 +55,4 @@ export default function Game({wordsArr}) {
       {playerScore!=0 && <Redirect push to="/userInput" playerScore={playerScore}/>}
     </div>
   );
-}else{
-  return <></>
-}
 }

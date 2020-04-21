@@ -9,11 +9,10 @@ function Canvas() {
       const makeAPICall = async () => {
         const resp =  await getAllWords()
         setWordsArr(resp) 
-        console.log('useEffect - resp', resp)
+        console.log('useEffect - resp', wordsArr)
       }
       makeAPICall()
     }, [])
-    console.log('useME2020 - resp', wordsArr)
     
     return (
         <div>

@@ -13,23 +13,32 @@ export default function TypingCheck({
   wordCount,
   level,
   playerScore,
-  handlePlayerScore
+  handlePlayerScore,
+  randomWord
 }) {
   const [indexLetter, setIndexLetter] = useState(1);
-  const [word, setWord] = useState(initialWords);
-  const [letter, setLetter] = useState(word.charAt(0));
+  const [word, setWord] = useState("");
+  const [letter, setLetter] = useState('');
   const [startTime, setStartTime] = useState();
   const [keyInput, setKeyInput] = useState();
   const [failures, setFailures] = useState(-1);
+  console.log('hey look here', randomWord.word)
   const handleTypedChar = (input) => {
     setKeyInput(input);
   };
+  // if(randomWord){
+  setWord(randomWord.word)
+  setLetter(word.charAt(0))
+  // console.log('peanuts',word.word)
+  // }
+  console.log('peanuts',word)
   useEffect(() => {
     if (!startTime) {
       setStartTime(currentTime());
     }
+    
     if (keyInput === letter) {
-      setLetter(word.charAt(indexLetter));
+      setLetter(word[0].word.charAt(indexLetter));
       let newIndex = indexLetter + 1;
       setIndexLetter(newIndex);
     } else if (keyInput !== letter) {
@@ -38,7 +47,7 @@ export default function TypingCheck({
     }
     if (word.charAt(indexLetter) === "" && keyInput === letter) {
       handleWordCount(wordCount + 1);
-      let newWord = generate();
+      let newWord = randomWord.word;
       setWord(newWord);
       setIndexLetter(1);
       setLetter(newWord.charAt(0));
