@@ -34,7 +34,7 @@ export default function TypingCheck({
     }
     
     if (keyInput === letter) {
-      setLetter(word[0].word.charAt(indexLetter));
+      setLetter(word.charAt(indexLetter));
       let newIndex = indexLetter + 1;
       setIndexLetter(newIndex);
     } else if (keyInput !== letter) {
