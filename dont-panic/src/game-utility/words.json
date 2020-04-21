@@ -1,6 +1,6 @@
 [
     {
-        "word":"cars.sort(function(a, b) => {(return a.year - b.year)/3});",
+        "word":"cars",
         "difficulty":"dangerous"
     }                          
 

@@ -43,7 +43,7 @@ export default function TypingCheck({
     }
     if (word.charAt(indexLetter) === "" && keyInput === letter) {
       handleWordCount(wordCount + 1);
-      let newWord = randomWord.word;
+      let newWord = generate();
       setWord(newWord);
       setIndexLetter(1);
       setLetter(newWord.charAt(0));
