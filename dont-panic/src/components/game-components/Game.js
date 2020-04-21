@@ -35,7 +35,7 @@ export default function Game({ wordsArr, handleScore, handleLost }) {
         setPercent(percent);
       };
       const handlePlayerScore = () => {
-        let score = (wpm * level).toFixed(2);
+        let score = ((wpm + 1) * level).toFixed(2);
         setPlayerScore(score);
         handleScore(score)
       };
