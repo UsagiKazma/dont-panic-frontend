@@ -2,17 +2,18 @@ import React, {useState, useEffect} from 'react'
 import Game from "./game-components/Game"
 import "../App.scss"
 import {getAllWords} from "../game-utility/api-helper"
-function Canvas() {
 
+
+function Canvas() {
     const [wordsArr, setWordsArr] = useState('')
     useEffect(() => {
       const makeAPICall = async () => {
         const resp =  await getAllWords()
         setWordsArr(resp) 
-        console.log('useEffect - resp', wordsArr)
       }
       makeAPICall()
     }, [])
+    
     
     return (
         <div>
