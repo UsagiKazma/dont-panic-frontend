@@ -2,9 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import KeyPress from "./KeyPress";
 import { currentTime } from "../../game-utility/time";
-import { generate } from "../../game-utility/words";
 import FailureDisplay from "./FailureDisplay";
-const initialWords = generate();
+
 
 export default function TypingCheck({
   handleWPM,
@@ -14,20 +13,21 @@ export default function TypingCheck({
   level,
   playerScore,
   handlePlayerScore,
-  randomWord
+  wordsArr
 }) {
+  //setting initialWords to random (named wordsArr) 
+  const initialWords = wordsArr;
   const [indexLetter, setIndexLetter] = useState(1);
   const [word, setWord] = useState(initialWords);
   const [letter, setLetter] = useState(word.charAt(0));
   const [startTime, setStartTime] = useState();
   const [keyInput, setKeyInput] = useState();
   const [failures, setFailures] = useState(-1);
- 
+
   const handleTypedChar = (input) => {
     setKeyInput(input);
   };
 
-  console.log('peanuts',word)
   useEffect(() => {
     if (!startTime) {
       setStartTime(currentTime());
@@ -42,8 +42,8 @@ export default function TypingCheck({
       console.log("failure", failures);
     }
     if (word.charAt(indexLetter) === "" && keyInput === letter) {
-      handleWordCount(wordCount + 1);
-      let newWord = generate();
+      handleWordCount(wordCount + 1)
+      let newWord =  wordsArr;
       setWord(newWord);
       setIndexLetter(1);
       setLetter(newWord.charAt(0));
