@@ -5,13 +5,21 @@ import UserInput from "./UserInput";
 import { Redirect } from "react-router-dom";
 import "./game-css.scss";
 
-export default function Game() {
+export default function Game({wordsArr}) {
+  
   const [wpm, setWpm] = useState(0);
   const [level, setLevel] = useState(1);
   const [wordCount, setWordCount] = useState(0);
   const [percent, setPercent] = useState(0);
   const [playerScore, setPlayerScore] = useState(0);
-
+  if(wordsArr.words){
+  const generate = (words) => {
+    const random = words[Math.floor(Math.random()*words.length)]
+    console.log("PLZ WORK", words)
+    return (random)
+  };
+  generate(wordsArr)
+ 
   const handleWPM = (input) => {
     setWpm(input);
   };
@@ -44,4 +52,7 @@ export default function Game() {
       {playerScore!=0 && <Redirect push to="/userInput" playerScore={playerScore}/>}
     </div>
   );
+}else{
+  return <></>
+}
 }
