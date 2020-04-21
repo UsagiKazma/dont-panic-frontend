@@ -14,7 +14,6 @@ function Canvas() {
       makeAPICall()
     }, [])
     
-    
     return (
         <div>
                 <div className="canvas">

@@ -19,9 +19,9 @@ export default function Game({ wordsArr }) {
       console.log('words.js random ',random)
       return (random && random.word)
     };
-    //reassign randomsomething
-    let randomsomething = generate(wordsArr)
-    console.log('randomsomething', randomsomething)
+    //call generate each time random is hit
+    let random = generate(wordsArr)
+    console.log('random', random)
 
       const handleWPM = (input) => {
         setWpm(input);
@@ -48,7 +48,7 @@ export default function Game({ wordsArr }) {
             handleWordCount={handleWordCount}
             wordCount={wordCount}
             handlePlayerScore={handlePlayerScore}
-            wordsArr={randomsomething}
+            wordsArr={random}
 
           />
           <h3>WPM: {wpm}</h3>

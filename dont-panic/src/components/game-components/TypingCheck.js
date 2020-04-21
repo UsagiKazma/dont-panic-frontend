@@ -15,7 +15,7 @@ export default function TypingCheck({
   handlePlayerScore,
   wordsArr
 }) {
-  //setting initialWords to randomwords (named wordsArr) 
+  //setting initialWords to random (named wordsArr) 
   const initialWords = wordsArr;
   const [indexLetter, setIndexLetter] = useState(1);
   const [word, setWord] = useState(initialWords);
