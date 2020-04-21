@@ -17,20 +17,16 @@ export default function TypingCheck({
   randomWord
 }) {
   const [indexLetter, setIndexLetter] = useState(1);
-  const [word, setWord] = useState("");
-  const [letter, setLetter] = useState('');
+  const [word, setWord] = useState(initialWords);
+  const [letter, setLetter] = useState(word.charAt(0));
   const [startTime, setStartTime] = useState();
   const [keyInput, setKeyInput] = useState();
   const [failures, setFailures] = useState(-1);
-  console.log('hey look here', randomWord.word)
+ 
   const handleTypedChar = (input) => {
     setKeyInput(input);
   };
-  // if(randomWord){
-  setWord(randomWord.word)
-  setLetter(word.charAt(0))
-  // console.log('peanuts',word.word)
-  // }
+
   console.log('peanuts',word)
   useEffect(() => {
     if (!startTime) {

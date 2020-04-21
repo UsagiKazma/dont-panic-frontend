@@ -1,4 +1,3 @@
-import faker from "faker";
 import words from "./words.json"
 
 export const generate = (data) => {
