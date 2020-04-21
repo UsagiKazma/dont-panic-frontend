@@ -8,7 +8,7 @@ function Canvas() {
     const [wordsArr, setWordsArr] = useState('')
     const [lost, setLost] = useState(false)
     const [score, setScore] = useState(0)
-    const [user, setUser] = useState({'user': 'score'})
+    const [user, setUser] = useState({})
     useEffect(() => {
       const makeAPICall = async () => {
         const resp =  await getAllWords()
@@ -26,6 +26,7 @@ function Canvas() {
       setUser({initials, score})
     }
     console.log("handleScore -> score", score)
+    console.log("USER", user)
     return (
         <div>
                 <div className="canvas">
