@@ -12,6 +12,8 @@ export default function TypingCheck({
   handleWordCount,
   wordCount,
   level,
+  playerScore,
+  handlePlayerScore
 }) {
   const [indexLetter, setIndexLetter] = useState(1);
   const [word, setWord] = useState(initialWords);
@@ -41,12 +43,15 @@ export default function TypingCheck({
       setIndexLetter(1);
       setLetter(newWord.charAt(0));
     }
-    if (wordCount === 10*(level+1)) {
+    if (wordCount === 10*(level)) {
       const durationInMinutes = (currentTime() - startTime) / 60000.0;
       let wpm = ((wordCount + 1) / durationInMinutes).toFixed(2);
       handleWPM(wpm);
       handleLevel(level + 1);
       handleWordCount(0);
+    }
+    if(failures>5){
+      handlePlayerScore();
     }
     setKeyInput(keyInput);
   }, [keyInput]);
@@ -54,8 +59,8 @@ export default function TypingCheck({
   return (
       <div className="typing-check">
         <div className="failure-display">
-          {failures === 6 && <Redirect push to="/userInput" />}
           <FailureDisplay failures={failures} />
+          {failures === 6 && <Redirect push to="/userInput" playerScore={playerScore}/>}
         </div>
         <p className="letters">
           <span className="current-letter glitch-game" data-text={letter}>
