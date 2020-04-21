@@ -13,12 +13,13 @@ export default function Game({ wordsArr }) {
   const [playerScore, setPlayerScore] = useState(0);
 
   if (wordsArr && wordsArr.length) {
+    //generate needed wordsArr to conditionally render, pulling it in here works
     const generate = (wordsArr) => {
       var random = wordsArr[Math.floor(Math.random()*wordsArr.length)]
       console.log('words.js random ',random)
       return (random && random.word)
-      
     };
+    //reassign randomsomething
     let randomsomething = generate(wordsArr)
     console.log('randomsomething', randomsomething)
 
