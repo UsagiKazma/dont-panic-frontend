@@ -1,10 +1,11 @@
 import React from 'react'
 
-export default function UserInput({playerScore}) {
-    console.log("playerScore", playerScore)
+export default function UserInput({score}) {
+    console.log("playerScore", score)
     return (
         <div>
-            <h1>HELLO WORLD</h1>
+            <h1>TIME TO JOIN A GA CODECAMP</h1>
+            <p>{score}</p>
         </div>
     )
 }

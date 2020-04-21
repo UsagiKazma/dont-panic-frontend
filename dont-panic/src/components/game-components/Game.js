@@ -4,7 +4,7 @@ import PlayerMovement from "./PlayerMovement";
 import UserInput from "./UserInput";
 import "./game-css.scss";
 
-export default function Game({ wordsArr }) {
+export default function Game({ wordsArr, handleScore, handleLost }) {
 
   const [wpm, setWpm] = useState(0);
   const [level, setLevel] = useState(1);
@@ -37,6 +37,7 @@ export default function Game({ wordsArr }) {
       const handlePlayerScore = () => {
         let score = (wpm * level).toFixed(2);
         setPlayerScore(score);
+        handleScore(score)
       };
 
       return (
@@ -49,6 +50,7 @@ export default function Game({ wordsArr }) {
             wordCount={wordCount}
             handlePlayerScore={handlePlayerScore}
             wordsArr={random}
+            handleLost={handleLost}
 
           />
           <h3>WPM: {wpm}</h3>
