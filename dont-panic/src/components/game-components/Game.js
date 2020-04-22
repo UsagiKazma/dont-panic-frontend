@@ -11,6 +11,7 @@ export default function Game({ wordsArr }) {
   const [wordCount, setWordCount] = useState(0);
   const [percent, setPercent] = useState(0);
   const [playerScore, setPlayerScore] = useState(0);
+  const [random,setrandom] = useState('')
 
 
   if (wordsArr && wordsArr.length) {
@@ -24,51 +25,56 @@ export default function Game({ wordsArr }) {
 
     
     //call generate each time random is hit
-    let random = generate(wordsArr)
+    // let random = generate(wordsArr)
     // console.log('random', random)
 
 
    // wordDifficulty filtered mapped then filtered 
-    let easy = wordsArr.filter(level =>{if(level && level.difficulty === 'easy'){return level.word}})
+    let easy = wordsArr.filter(diff =>{if(diff && diff.difficulty === 'easy'){return diff.word}})
     let easyWords = easy.map(words => {return words.word})
 
-    let medium = wordsArr.filter(level =>{if(level && level.difficulty === 'medium'){return level.word}})
+    let medium = wordsArr.filter(diff =>{if(diff && diff.difficulty === 'medium'){return diff.word}})
     let mediumWords = medium.map(words => {return words.word})
 
-    let hard = wordsArr.filter(level =>{if(level && level.difficulty === 'hard'){return level.word}})
-    let hardWords = hard.filter(words => {return words.word})
+    let hard = wordsArr.filter(diff =>{if(diff && diff.difficulty === 'hard'){return diff.word}})
+    let hardWords = hard.map(words => {return words.word})
 
-    // let dangerous = wordsArr.map(level =>{if(level && level.difficulty === 'dangerous'){return level.word}})
-    // let dangerousWords = dangerous.map(words => {return words.word})
+    let dangerous = wordsArr.filter(diff =>{if(diff && diff.difficulty === 'dangerous'){return diff.word}})
+    let dangerousWords = dangerous.map(words => {return words.word})
 
     // console.log('EEEASY MONEEY',easyWords)
 
-
+ 
   //1-3 easy
   //4-6 medium
   //6-9 hard
   //9-12 dangerous
 
-  //   if(level){
-  //     setrandom(generate(easyWords))
-  //     // console.log('Game-if-statement-easy',random)
-  //     // console.log('Level at the time', level)
-  //   }else if(level <=6 && level > 4){
-  //     setrandom(generate(mediumWords))
-  //     // console.log('Game-if-statement-medium',random)
-  //     // console.log('Level at the time', level)
-  //   }else if(level <=9 && level > 6){
-  //     setrandom(generate(hardWords))
-  //     // console.log('Game-if-statement-hard',random)
-  //     // console.log('Level at the time', level)
-  //   }else if(level <=12 && level > 9){
-  //     setrandom()
-  //     // console.log('Game-if-statement-dangerous',random)
-  //     // console.log('Level at the time', level)
-  //   }
+function handleDifficulty(){
+    if(level <= 2){
+     setrandom(generate(easyWords && easyWords))
+      // console.log('Game-if-statement-easy',random)
+      // console.log('Level at the time', level)
+    }else if(level <=6 && level > 4){
+      setrandom(generate(mediumWords && mediumWords))
+      // console.log('Game-if-statement-medium',random)
+      // console.log('Level at the time', level)
+    }else if(level <=9 && level > 6){
+      setrandom(generate(hardWords && hardWords))
+      // console.log('Game-if-statement-hard',random)
+      // console.log('Level at the time', level)
+    }else if(level <=12 && level > 9){
+     setrandom(generate(dangerousWords && dangerousWords))
+      // console.log('Game-if-statement-dangerous',random)
+      // console.log('Level at the time', level)
+    }else{
+      setrandom(wordsArr)
+    }
+  }
 
 
-  //  console.log('Game - randomAfterIf - ',random)
+
+   console.log('THE VALUE OF RANDOM - ',random)
 
 
 //1-3 easy
