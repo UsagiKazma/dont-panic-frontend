@@ -11,17 +11,36 @@ export default function Game({ wordsArr, handleScore, handleLost }) {
   const [wordCount, setWordCount] = useState(0);
   const [percent, setPercent] = useState(0);
   const [playerScore, setPlayerScore] = useState(0);
-
+ 
   if (wordsArr && wordsArr.length) {
     //generate needed wordsArr to conditionally render, pulling it in here works
+
     const generate = (wordsArr) => {
       var random = wordsArr[Math.floor(Math.random()*wordsArr.length)]
       console.log('words.js random ',random)
       return (random && random.word)
     };
-    //call generate each time random is hit
-    let random = generate(wordsArr)
-    console.log('random', random)
+
+    // call generate each time random is hit
+    let random = ''
+
+    let easy = wordsArr.filter(diff =>{if(diff && diff.difficulty === 'easy'){return diff.word}})
+
+    let medium = wordsArr.filter(diff =>{if(diff && diff.difficulty === 'medium'){return diff.word}})
+
+    let hard = wordsArr.filter(diff =>{if(diff && diff.difficulty === 'hard'){return diff.word}})
+
+    let dangerous = wordsArr.filter(diff =>{if(diff && diff.difficulty === 'dangerous'){return diff.word}})
+
+function handleDifficulty() {
+    if(level <= 1){random = generate(easy)}
+    else if(level <=4 && level > 1){random = generate(medium)}
+    else if(level <=6 && level > 4){random = generate(hard)}
+    else if(level <=9 && level > 6){random = generate(dangerous)}
+    else{random = generate(wordsArr)}
+  }
+handleDifficulty()
+
 
       const handleWPM = (input) => {
         setWpm(input);
