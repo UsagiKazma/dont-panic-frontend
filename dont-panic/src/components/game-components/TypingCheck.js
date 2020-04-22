@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Redirect } from "react-router-dom";
 import KeyPress from "./KeyPress";
 import { currentTime } from "../../game-utility/time";
 import FailureDisplay from "./FailureDisplay";
@@ -13,7 +12,8 @@ export default function TypingCheck({
   level,
   playerScore,
   handlePlayerScore,
-  wordsArr
+  wordsArr,
+  handleLost
 }) {
   //setting initialWords to random (named wordsArr) 
   const initialWords = wordsArr;
@@ -55,8 +55,9 @@ export default function TypingCheck({
       handleLevel(level + 1);
       handleWordCount(0);
     }
-    if(failures>5){
+    if(failures===5){
       handlePlayerScore();
+      handleLost()
     }
     setKeyInput(keyInput);
   }, [keyInput]);
@@ -65,7 +66,6 @@ export default function TypingCheck({
       <div className="typing-check">
         <div className="failure-display">
           <FailureDisplay failures={failures} />
-          {failures === 6 && <Redirect push to="/userInput" playerScore={playerScore}/>}
         </div>
         <p className="letters">
           <span className="current-letter glitch-game" data-text={letter}>
