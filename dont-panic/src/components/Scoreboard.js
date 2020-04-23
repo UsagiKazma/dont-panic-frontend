@@ -1,11 +1,8 @@
 import React, { useContext } from 'react';
-
 import { DataContext } from "../App";
-
 function ScoreBoard() {
     const data = useContext(DataContext);
     let display = <li>Loading...</li>
-
     if(data.users[0] == null){
         console.log("Here");
     }else{
@@ -14,18 +11,17 @@ function ScoreBoard() {
         });
     }
     
-    return (
-        <>
-        <div className="App-header">
-            <h1>Scoreboard</h1>
-        </div>
-        <div className="scoreboard-background">
-            <ul>
-                {display}
-            </ul>
-        </div>
-        </>
-    )
+return (
+    <>
+    <div className="App-header">
+        <h1>Scoreboard</h1>
+    </div>
+    <div className="scoreboard-background">
+        <ul>
+            {display}
+        </ul>
+    </div>
+    </>
+)
 }
-
 export default ScoreBoard
