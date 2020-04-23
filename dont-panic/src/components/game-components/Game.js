@@ -4,6 +4,7 @@ import PlayerMovement from "./PlayerMovement";
 import UserInput from "./UserInput";
 import "./game-css.scss";
 
+
 export default function Game({ wordsArr, handleScore, handleLost }) {
 
   const [wpm, setWpm] = useState(0);
@@ -21,15 +22,11 @@ export default function Game({ wordsArr, handleScore, handleLost }) {
       return (random && random.word)
     };
 
-    // call generate each time random is hit
     let random = ''
-
+    //difficulty filtered
     let easy = wordsArr.filter(diff =>{if(diff && diff.difficulty === 'easy'){return diff.word}})
-
     let medium = wordsArr.filter(diff =>{if(diff && diff.difficulty === 'medium'){return diff.word}})
-
     let hard = wordsArr.filter(diff =>{if(diff && diff.difficulty === 'hard'){return diff.word}})
-
     let dangerous = wordsArr.filter(diff =>{if(diff && diff.difficulty === 'dangerous'){return diff.word}})
 
 function handleDifficulty() {
