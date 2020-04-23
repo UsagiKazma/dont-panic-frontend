@@ -13,7 +13,7 @@ function ScoreBoard() {
             return <li key={index}>User: {user.user}, Score: {user.score}</li>
         });
     }
-    
+
     return (
         <>
         <div className="App-header">

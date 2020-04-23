@@ -1,29 +1,39 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
 import { createUser } from '../../game-utility/api-helper'
 
 export default function UserInput({score}) {
-    const [initials, setInitials] = useState('');
-    const [user, setUser] = useState({ user: "", score: 0});
+    const [user, setUser] = useState('');
+    const [userData, setUserData] = useState({});
+
     let history = useHistory();
 
-    const handleSubmit = e => {
-        e.preventDefault()
-        
-        console.log("HANDLE SUBMIT", initials, score)
-        console.log("SUBMIT")
+    useEffect(() => {
+        if (userData && userData.length) {
+            handleCreateUser(userData);
+        }
+      }, [userData]);
 
-        setUser({initials, score});
-        console.log("USER", user)
-        history.push("/scoreboard");
+    const handleUserSet = (user, score) => {
+        setUserData([{user, score}]);  
+        handleCreateUser();
+    };
+
+    const handleCreateUser = async () => {
+        const json = await createUser(userData);
+        history.push("/scoreboard"); 
+     }
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        handleUserSet(user, score);
     }
 
-    console.log(initials)
     return (
         <div>
             <h1>TIME TO JOIN A GA CODECAMP</h1>
             <label>ENTER YOUR INITIALS</label>
-            <input value = {initials} onChange={e => setInitials(e.target.value)} placeholder="XXX"/>
+            <input value = {user} onChange={e => setUser(e.target.value)} placeholder="XXX"/>
             <p>SCORE: {score}</p>
             <button onClick={handleSubmit}>SUBMIT</button>
         </div>
