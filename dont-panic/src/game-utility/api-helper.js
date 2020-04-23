@@ -14,3 +14,13 @@ export const getAllUsers = async () => {
   console.log("getAllUsers -> resp", resp)
   return resp.data;
 };
+export const createUser = async (user) => {
+  const resp = await api.post("/user/create", user);
+  console.log("Success in creating new user");
+  return resp.data;
+};
+export const deleteUser = async (id) => {
+  const resp = await api.delete(`/user/delete/${id}`);
+  console.log("Successfully deleted user.");
+  return resp.data;
+};

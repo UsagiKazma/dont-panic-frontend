@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, createContext } from 'react';
 import { Link, Switch, Route } from "react-router-dom";
 import Menu from "./components/Menu";
 import UserInput from "./components/game-components/UserInput";
@@ -7,7 +7,22 @@ import Enter from "./components/Enter";
 import Canvas from "./components/Canvas";
 import "./App.scss";
 
+import { getAllUsers } from "./game-utility/api-helper";
+export const DataContext = createContext();
+
 function App() {
+
+  const [users, setAllUsers] = useState({});
+
+  useEffect(() => {
+    const makeAPICall = async () => {
+      const resp =  await getAllUsers();
+      setAllUsers(resp);
+    }
+    makeAPICall();
+  }, []);
+
+
   return (
     <div className="container">
       <div className="App">
@@ -38,7 +53,9 @@ function App() {
             path="/userinput"
             render={() => <UserInput />}
           />
-          <Route path="/Scoreboard" render={() => <Scoreboard />} />
+          <DataContext.Provider value={{users}}>
+            <Route path="/Scoreboard" render={() => <Scoreboard />} />
+          </DataContext.Provider>
           <Route path="/Menu" render={() => <Menu />} />
         </Switch>
       </div>
