@@ -30,13 +30,13 @@ export default function Game({ wordsArr, handleScore, handleLost }) {
     let dangerous = wordsArr.filter(diff =>{if(diff && diff.difficulty === 'dangerous'){return diff.word}})
 
 function handleDifficulty() {
-    if(level <= 1){random = generate(easy)}
-    else if(level <=4 && level > 1){random = generate(medium)}
-    else if(level <=6 && level > 4){random = generate(hard)}
-    else if(level <=9 && level > 6){random = generate(dangerous)}
+    if(level <= 3){random = generate(easy)}
+    else if(level >= 4){random = generate(medium)}
+    else if(level >=6){random = generate(hard)}
+    else if(level >=9){random = generate(dangerous)}
     else{random = generate(wordsArr)}
   }
-handleDifficulty()
+  handleDifficulty()
 
 
       const handleWPM = (input) => {
@@ -67,6 +67,7 @@ handleDifficulty()
             handlePlayerScore={handlePlayerScore}
             wordsArr={random}
             handleLost={handleLost}
+            handleDifficulty={handleDifficulty}
 
           />
           <h3>WPM: {wpm}</h3>

@@ -13,7 +13,8 @@ export default function TypingCheck({
   playerScore,
   handlePlayerScore,
   wordsArr,
-  handleLost
+  handleLost,
+  handleDifficulty
 }) {
   //setting initialWords to random (named wordsArr) 
   const initialWords = wordsArr;
