@@ -47,7 +47,7 @@ function handleDifficulty() {
       };
       const handleWordCount = (input) => {
         setWordCount(input);
-        let percent = ((wordCount + 1) / 10) * 100;
+        let percent = ((wordCount +1) / 10) * 100;
         setPercent(percent);
       };
       const handlePlayerScore = () => {
