@@ -1,17 +1,23 @@
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
+import { createUser } from '../../game-utility/api-helper'
 
-export default function UserInput({score, handleUser}) {
-    const [initials, setInitials] = useState('')
-    let history = useHistory()
+export default function UserInput({score}) {
+    const [initials, setInitials] = useState('');
+    const [user, setUser] = useState({ user: "", score: 0});
+    let history = useHistory();
 
     const handleSubmit = e => {
         e.preventDefault()
-        handleUser(initials, score)
+        
         console.log("HANDLE SUBMIT", initials, score)
         console.log("SUBMIT")
+
+        setUser({initials, score});
+        console.log("USER", user)
         history.push("/scoreboard");
     }
+
     console.log(initials)
     return (
         <div>
