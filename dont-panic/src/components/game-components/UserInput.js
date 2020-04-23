@@ -16,7 +16,7 @@ export default function UserInput({score}) {
 
     const handleUserSet = (user, score) => {
         setUserData([{user, score}]);  
-        handleCreateUser();
+
     };
 
     const handleCreateUser = async () => {
