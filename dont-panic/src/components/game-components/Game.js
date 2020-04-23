@@ -4,6 +4,7 @@ import PlayerMovement from "./PlayerMovement";
 import UserInput from "./UserInput";
 import "./game-css.scss";
 
+
 export default function Game({ wordsArr, handleScore, handleLost }) {
 
   const [wpm, setWpm] = useState(0);
