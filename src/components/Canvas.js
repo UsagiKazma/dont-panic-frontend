@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Game from "./game-components/Game";
 import "../App.scss";
 import { getAllWords } from "../game-utility/api-helper";
-import UserInput from "../components/game-components/UserInput";
+import UserInput from "./game-components/UserInput";
 function Canvas() {
   const [wordsArr, setWordsArr] = useState("");
   const [lost, setLost] = useState(false);
