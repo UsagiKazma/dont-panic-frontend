@@ -1,6 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react';
 import { Link, Switch, Route } from "react-router-dom";
-import Menu from "./components/Menu";
 import UserInput from "./components/game-components/UserInput";
 import Scoreboard from "./components/Scoreboard";
 import Enter from "./components/Enter";
@@ -38,10 +37,6 @@ function App() {
             {" "}
             Scoreboard{" "}
           </Link>
-          <Link to="/Menu" style={{ textDecoration: "none", color: "black" }}>
-            {" "}
-            Menu{" "}
-          </Link>
         </div>
         <h1 className="glitch" data-text="Don't Panic">
           Don't Panic
@@ -56,7 +51,6 @@ function App() {
           <DataContext.Provider value={{users}}>
             <Route path="/Scoreboard" render={() => <Scoreboard />} />
           </DataContext.Provider>
-          <Route path="/Menu" render={() => <Menu />} />
         </Switch>
       </div>
     </div>

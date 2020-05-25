@@ -16,7 +16,7 @@ export default function KeyPress({ handleTypedChar }) {
     <input
       ref={inputRef}
       value={value}
-      onChange={e => setValue(e.target.value)}
+      onChange={(e) => setValue(e.target.value)}
     />
   );
-};
+}
